@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Multifunctional : MonoBehaviour
 {
+    private float _speedMove = 0.05f;
+    private float _speedRotate = 12f;
+
     private void Update()
     {
         Move();
@@ -12,13 +15,13 @@ public class Multifunctional : MonoBehaviour
     private void Move()
     {
         var nextPosition = transform.position;
-        nextPosition.z += 0.05f;
+        nextPosition.z += _speedMove;
         transform.position = nextPosition;
     }
 
     private void Rotate()
     {
-        transform.RotateAround(transform.position, Vector3.up, 10f * Time.deltaTime);
+        transform.RotateAround(transform.position, Vector3.up, _speedRotate * Time.deltaTime);
     }
 
     private void Scale()
